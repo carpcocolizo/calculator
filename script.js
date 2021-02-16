@@ -108,6 +108,14 @@ function doTheMath() {
     let showEqual = document.querySelector("#display")
     showEqual.textContent = Math.round(operation.a * 100) / 100;
     operation.oper = " "
+  } else if (operation.a != undefined && operation.b == 0 && operation.oper == "div") {
+    operate(operation.a,operation.b,operation.oper)
+    let showEqual = document.querySelector("#display");
+    showEqual.textContent = operation.c
+    operation.a = operation.c
+    operation.b = undefined
+    operation.oper = " "
+    b = ""
   } else {
   operate(operation.a,operation.b,operation.oper)
   let showEqual = document.querySelector("#display");
@@ -241,6 +249,8 @@ function clearDiv() {
   operation.pos = true;
   let showClearDivDisplay = document.querySelector("#divError");
   showClearDivDisplay.textContent = "NO SE PUEDE DIVIDIR POR 0 AMIGO"
+  let showClearDisplay = document.querySelector("#display");
+  showClearDisplay.textContent = " "
 }
  
 let toggleNegative = document.querySelector("#negative")
